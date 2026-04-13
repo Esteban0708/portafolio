@@ -15,9 +15,12 @@
                 <ng-container *ngIf="!project.confidential; else confidentialImg">
 
                     <div class="slides">
-                        <img *ngFor="let img of project.images; let ii = index" [src]="img"
-                            [alt]="project.title + ' imagen ' + (ii + 1)" [class.active]="activeIndex[ci] === ii"
-                            (click)="openLightbox(img)" style="cursor: zoom-in;" />
+                       <img 
+  [src]="project.images[activeIndex[ci]]"
+  [alt]="project.title"
+  (click)="openLightbox(project.images[activeIndex[ci]])"
+  style="cursor: zoom-in;" 
+/>
                     </div>
 
                     <ng-container *ngIf="project.images.length > 1">
