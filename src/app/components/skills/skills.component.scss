@@ -1,0 +1,87 @@
+.skills-section {
+  padding: 5rem 0;
+  background: #0a1628;
+  overflow: hidden; // importante para ocultar el loop
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #06b6d4;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+// Mascara de degradado en los bordes
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  // Fade izquierda
+  &::before {
+    left: 0;
+    background: linear-gradient(to right, #0a1628, transparent);
+  }
+
+  // Fade derecha
+  &::after {
+    right: 0;
+    background: linear-gradient(to left, #0a1628, transparent);
+  }
+}
+
+// Track que se mueve
+.carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: scrollLeft 20s linear infinite;
+
+  &:hover {
+    animation-play-state: paused; // pausa al pasar el mouse
+  }
+}
+
+.skill-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  min-width: 140px;
+  transition: border-color 0.3s, transform 0.3s;
+
+  img {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 0.75rem;
+    object-fit: contain;
+  }
+
+  p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  &:hover {
+    border-color: #06b6d4;
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes scrollLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

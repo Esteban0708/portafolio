@@ -1,0 +1,82 @@
+<section id="contact" class="contact-section">
+
+  <div class="contact-container">
+
+    <div class="contact-info ">
+      <h2>¿Hablamos?</h2>
+      <p>
+        Estoy disponible para proyectos freelance, oportunidades laborales
+        o simplemente para conectar. Escríbeme y te respondo pronto.
+      </p>
+      <div class="info-item">
+        <span class="icon">✉</span>
+        <span>ramosesteban0709@gmail.com</span>
+      </div>
+      <div class="info-item">
+        <span class="icon">📍</span>
+        <span>Colombia</span>
+      </div>
+    </div>
+
+    <form class="contact-form"
+          [formGroup]="contactForm"
+          (ngSubmit)="enviar()">
+
+      <!-- Nombre -->
+      <div class="field">
+        <label>Nombre</label>
+        <input type="text"
+               formControlName="name"
+               placeholder="Tu nombre"
+               [class.invalid]="f['name'].touched && f['name'].invalid" />
+        <span class="error"
+              *ngIf="f['name'].touched && f['name'].hasError('required')">
+          El nombre es requerido
+        </span>
+      </div>
+
+      <!-- Email -->
+      <div class="field">
+        <label>Email</label>
+        <input type="email"
+               formControlName="email"
+               placeholder="tu@email.com"
+               [class.invalid]="f['email'].touched && f['email'].invalid" />
+        <span class="error"
+              *ngIf="f['email'].touched && f['email'].hasError('required')">
+          El email es requerido
+        </span>
+        <span class="error"
+              *ngIf="f['email'].touched && f['email'].hasError('email')">
+          Email no válido
+        </span>
+      </div>
+
+      <!-- Mensaje -->
+      <div class="field">
+        <label>Mensaje</label>
+        <textarea formControlName="message"
+                  rows="5"
+                  placeholder="Cuéntame en qué puedo ayudarte..."
+                  [class.invalid]="f['message'].touched && f['message'].invalid">
+        </textarea>
+        <span class="error"
+              *ngIf="f['message'].touched && f['message'].hasError('required')">
+          El mensaje es requerido
+        </span>
+      </div>
+
+      <!-- Botón -->
+      <button type="submit"
+              class="btn-submit"
+              [disabled]="estado === 'enviando'">
+        <span *ngIf="estado === 'idle'">Enviar mensaje</span>
+        <span *ngIf="estado === 'enviando'" class="spinner">Enviando...</span>
+        <span *ngIf="estado === 'exito'">✓ ¡Mensaje enviado!</span>
+        <span *ngIf="estado === 'error'">✗ Error, intenta de nuevo</span>
+      </button>
+
+    </form>
+  </div>
+
+</section>

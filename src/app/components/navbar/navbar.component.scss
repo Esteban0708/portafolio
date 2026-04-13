@@ -1,0 +1,108 @@
+/* NAVBAR BASE */
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  padding: 15px 30px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: linear-gradient(135deg, rgba(34,211,238,0.15), rgba(139,92,246,0.15));
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  color: white;
+  z-index: 1000;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  background: linear-gradient(90deg, #22d3ee, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.menu {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+/* LINKS */
+.menu a {
+  text-decoration: none;
+  color: #e2e8f0;
+  position: relative;
+  transition: 0.3s;
+}
+
+.menu a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #22d3ee, #a78bfa);
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  color: #22d3ee;
+}
+.menu a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #22d3ee, #a78bfa);
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  color: #22d3ee;
+}
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: block;
+  }
+
+  .menu {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+
+    flex-direction: column;
+    width: 200px;
+    padding: 20px;
+
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+
+    transition: 0.3s;
+  }
+
+  .menu.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}

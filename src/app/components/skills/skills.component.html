@@ -1,0 +1,12 @@
+<section id="skills" class="skills-section">
+  <h2 class="animate-on-scroll section-title">Tecnologías</h2>
+
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      <div class="skill-card" *ngFor="let skill of skillsDuplicados">
+        <img [src]="skill.icon" [alt]="skill.name" />
+        <p>{{ skill.name }}</p>
+      </div>
+    </div>
+  </div>
+</section>
