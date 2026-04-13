@@ -50,6 +50,17 @@ export class ProjectsComponent implements AfterViewInit {
       tags: ['Angular', '.NET', 'Oracle'],
       images: [],
       confidential: true,
+    },
+    {
+      title: 'Sistema de Inventario',
+      description: 'Sistema de inventario para gestionar productos, costeo, ventas. Incluye reportes y alertas de bajo inventario.',
+      tags: ['Angular', '.NET', 'SQL Server'],
+      images: ['assets/Inventa1.png',
+        'assets/Inventa2.png',
+        'assets/Inventa3.png',
+        'assets/Inventa4.png'
+      ],
+      confidential: false,
     }
   ];
 
