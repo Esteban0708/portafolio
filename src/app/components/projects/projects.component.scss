@@ -305,7 +305,17 @@
 
   &:hover { background: #ef4444; }
 }
+.img-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
 
+.card-image img {
+  position: relative;
+  z-index: 2;
+}
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
